@@ -1,7 +1,9 @@
 FROM daocloud.io/centos
 
 # Install the Nginx.org CentOS repo.
+RUN mv -fv /etc/yum.repos.d/*.repo /tmp
 ADD nginx.repo /etc/yum.repos.d/nginx.repo
+
 
 # Install base stuff.
 RUN yum -y install ca-certificates
