@@ -4,9 +4,8 @@ FROM daocloud.io/centos
 ADD nginx.repo /etc/yum.repos.d/nginx.repo
 
 # Install base stuff.
-RUN yum -y install ca-certificates; yum clean all
-RUN yum -y update; yum clean all
-RUN yum -y install nginx; yum clean all
+RUN yum -y install ca-certificates
+RUN yum -y install nginx
 
 # forward request logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
